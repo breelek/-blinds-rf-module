@@ -12,17 +12,58 @@
       Модуль поддерживает команды управления шторами и жалюзи по радиоканалу.<br>
       Реализованы протоколы Somfy и Dooya (Akko).<br>
       Описываются команды и их параметры.<br> 
-      Интерфейс модуля - UART, скорость обмена - 115 200, размер данных - 8 бит,<br>
-      стоп бит - 1, чётность - нет.<br>
+      Интерфейс модуля - UART, скорость обмена - 115 200 бод, размер данных - 8 бит, стоп бит - 1, проверки на чётность нет.<br>
       Изменение параметров UART не предусмотрено - не нашлось обоснования.<br>
-      Команды можно предавать как строчными, так и прописными символами.<br>
-      Окончание ввода команды определяется по символу, значение которого меньше<br>
-      или равно 0x0D, т.е. команда может заканчиваться, например, символом '\n', или '\r'.<br>
-      Все числовые параметры - числа в шестнадцатеричной системе исчисления.<br>
-      Например, команда smf_up 15,e - передать команду Move up для устройства Somfy,<br>
-      имеющего адрес Somfy_ID_base + 21 (0x15->21). Команду передать 14 раз (0x0e->14),<br>
-      т.е. команда соответствует длительному нажатию на клавишу  “^” на радиопульте Somfy.<br>
+      Команды можно передавать как строчными, так и прописными символами.<br>
+      Окончание ввода команды определяется по символу, значение которого меньше 0x0E, т.е. команда может заканчиваться, например, символом '\n', или '\r'.<br>
+      Все числовые параметры - числа в шестнадцатеричной системе исчисления. Записываются без символов '0x'.<br>
+      Если параметров несколько, они разделяются только запятой за которой сразу же, без пробела, следует следующий параметр.
+      Любой параметр или все сразу могут быть пропущены. В этом случае команда будет использовать параметры предыдущей команды из своей группы, кроме параметра num_repeats.
+      Если пропущен параметр num_repeats, будет использовано значение по-умолчанию т.е. команда будет передана так, как будто на пульте клавиша команды была нажата кратковременно.<br>
+      Например, команда smf_up 15,e - передать команду Move up для устройства Somfy, имеющего адрес Somfy_ID_base + 21 (0x15->21). Команду передать 14 раз (0x0e->14), т.е. команда соответствует длительному нажатию на клавишу  “^” на радиопульте Somfy.<br>
     </p>
+    <div class="cmd-tbl">
+      <div class="grid-cell-cnt grid-head-blue tbl-span3">Команды Somfy</div>
+      <div class="grid-cell-cnt grid-head-blue">Команда</div>
+      <div class="grid-cell-cnt grid-head-blue">Параметры</div>
+      <div class="grid-cell-cnt grid-head-blue">Описание</div>
+      <div class="grid-cell-lft">smf_my</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Стоп, или переместиться в заданную позицию. Соответствует нажатию кнопки "my" на пульте Somfy.</div>
+      <div class="grid-cell-lft">smf_up</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Открыть или Вверх. Соответствует нажатию кнопки "^".</div>
+      <div class="grid-cell-lft">smf_my_up</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Установить верхний предел в режиме начального программирования.</div>
+      <div class="grid-cell-lft">smf_down</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Закрыть или Вниз.</div>
+      <div class="grid-cell-lft">smf_my_down</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Установить нижний предел в режиме начального программирования.</div>
+      <div class="grid-cell-lft">smf_up_down</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Режим начального программирования.</div>
+      <div class="grid-cell-lft">smf_prog</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Привязка/отвязка пульта.</div>
+      <div class="grid-cell-lft">smf_sun_flag</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Разрешить реагировать на детекторы освещённости и ветра.</div>
+      <div class="grid-cell-lft">smf_flag</div>
+      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">Отключить детекторы освещённости и ветра.</div>
+      <div class="grid-cell-lft">smf_set_base_id</div>
+      <div class="grid-cell-lft">smf_base_id</div>
+      <div class="grid-cell-lft">Задать базовый адрес устройств Somfy.</div>
+      <div class="grid-cell-lft">smf_counters_show</div>
+      <div class="grid-cell-lft">Нет.</div>
+      <div class="grid-cell-lft">Показать занчения счётчиков команд Somfy.</div>
+      <div class="grid-cell-lft">smf_set_counter</div>
+      <div class="grid-cell-lft">counter,value</div>
+      <div class="grid-cell-lft">Установить значение счётчика.</div>
+    </div>
   </body>
 </html>
 

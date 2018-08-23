@@ -2,5 +2,55 @@ body {
   font-family: sans-serif;
   margin: auto;
   max-width: 1280px;
+  padding: 20px;
 }
 
+.cmd-tbl {
+  display: grid;
+  border: 1px solid black;
+  width: 100%;
+  grid-template-columns: 150px 200px 1fr;
+  grid-template-rows: repeat(3, min-content);
+}
+
+.grid-head-blue {
+  background-color: aqua;
+}
+
+.tbl-span2 {
+  grid-column: span 2;
+}
+
+.tbl-span3 {
+  grid-column: span 3;
+}
+
+.tbl-span7 {
+  grid-column: span 7;
+}
+
+.tbl-span8 {
+  grid-column: span 8;
+}
+
+.tbl-row-span2 {
+  grid-row: span 2;
+}
+
+.tbl-span2_x_2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grid-cell-cnt, .grid-cell-lft {
+  border: 1px solid black;
+}
+
+.grid-cell-cnt {
+  text-align: center;
+}
+
+.grid-cell-lft {
+  text-align: left;
+  padding: 5px;
+}
