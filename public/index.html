@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
     <meta name="generator" content="GitLab Pages">
     <title>Описание команд радиомодуля.</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
-    </div>
-
-    <h1>Hello World!</h1>
-
+    <h1>Описание команд радиомодуля.</h1>
     <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
+      Модуль поддерживает команды управления шторами и жалюзи по радиоканалу.<br>
+      Реализованы протоколы Somfy и Dooya (Akko).<br>
+      Описываются команды и их параметры.<br> 
+      Интерфейс модуля - UART, скорость обмена - 115 200, размер данных - 8 бит,<br>
+      стоп бит - 1, чётность - нет.<br>
+      Изменение параметров UART не предусмотрено - не нашлось обоснования.<br>
+      Команды можно предавать как строчными, так и прописными символами.<br>
+      Окончание ввода команды определяется по символу, значение которого меньше<br>
+      или равно 0x0D, т.е. команда может заканчиваться, например, символом '\n', или '\r'.<br>
+      Все числовые параметры - числа в шестнадцатеричной системе исчисления.<br>
+      Например, команда smf_up 15,e - передать команду Move up для устройства Somfy,<br>
+      имеющего адрес Somfy_ID_base + 21 (0x15->21). Команду передать 14 раз (0x0e->14),<br>
+      т.е. команда соответствует длительному нажатию на клавишу  “^” на радиопульте Somfy.<br>
     </p>
   </body>
 </html>
