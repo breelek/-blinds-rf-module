@@ -21,6 +21,8 @@
       Любой параметр или все сразу могут быть пропущены. В этом случае команда будет использовать параметры предыдущей команды из своей группы, кроме параметра num_repeats.
       Если пропущен параметр num_repeats, будет использовано значение по-умолчанию т.е. команда будет передана так, как будто на пульте клавиша команды была нажата кратковременно.<br>
       Например, команда smf_up 15,e - передать команду Move up для устройства Somfy, имеющего адрес Somfy_ID_base + 21 (0x15->21). Команду передать 14 раз (0x0e->14), т.е. команда соответствует длительному нажатию на клавишу  “^” на радиопульте Somfy.<br>
+      При успешном выполнении команды в UART будет выведено сообщение "OK". После этого можно отправлять следующую команду.<br>
+      В случае ошибки в UART будет выведено сообщение "ERROR". Никакой дополнительной информации о причине ошибки не выводится.
     </p>
     <div class="cmd-tbl">
       <div class="grid-cell-cnt grid-head-blue tbl-span3">Команды Somfy</div>
@@ -28,42 +30,240 @@
       <div class="grid-cell-cnt grid-head-blue">Параметры</div>
       <div class="grid-cell-cnt grid-head-blue">Описание</div>
       <div class="grid-cell-lft">smf_my</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Стоп, или переместиться в заданную позицию. Соответствует нажатию кнопки "my" на пульте Somfy.</div>
       <div class="grid-cell-lft">smf_up</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Открыть или Вверх. Соответствует нажатию кнопки "^".</div>
       <div class="grid-cell-lft">smf_my_up</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Установить верхний предел в режиме начального программирования.</div>
       <div class="grid-cell-lft">smf_down</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Закрыть или Вниз.</div>
       <div class="grid-cell-lft">smf_my_down</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Установить нижний предел в режиме начального программирования.</div>
       <div class="grid-cell-lft">smf_up_down</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Режим начального программирования.</div>
       <div class="grid-cell-lft">smf_prog</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Привязка/отвязка пульта.</div>
       <div class="grid-cell-lft">smf_sun_flag</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Разрешить реагировать на детекторы освещённости и ветра.</div>
       <div class="grid-cell-lft">smf_flag</div>
-      <div class="grid-cell-lft">counter,num_repeats</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_num_repeats">
+          num_repeats
+        </a>
+      </div>
       <div class="grid-cell-lft">Отключить детекторы освещённости и ветра.</div>
       <div class="grid-cell-lft">smf_set_base_id</div>
-      <div class="grid-cell-lft">smf_id_base</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_smf_id_base">
+          smf_id_base
+        </a>
+      </div>
       <div class="grid-cell-lft">Задать базовый адрес устройств Somfy.</div>
       <div class="grid-cell-lft">smf_counters_show</div>
       <div class="grid-cell-lft">Нет.</div>
       <div class="grid-cell-lft">Показать занчения счётчиков команд Somfy.</div>
       <div class="grid-cell-lft">smf_set_counter</div>
-      <div class="grid-cell-lft">counter,value</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_counter">
+          counter
+        </a>
+        ,
+        <a class="dark-ref" href="#details_value">
+          value
+        </a>
+      </div>
       <div class="grid-cell-lft">Установить значение счётчика.</div>
+      <div class="grid-cell-cnt grid-head-blue tbl-span3">Команды Dooya (Akko).</div>
+      <div class="grid-cell-cnt grid-head-blue">Команда</div>
+      <div class="grid-cell-cnt grid-head-blue">Параметры</div>
+      <div class="grid-cell-cnt grid-head-blue">Описание</div>
+      <div class="grid-cell-lft">dy_stop</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_group">
+          group
+        </a>
+        ,
+        <a class="dark-ref" href="#details_channal">
+          channal
+        </a>
+      </div>
+      <div class="grid-cell-lft">Стоп.</div>
+      <div class="grid-cell-lft">dy_up</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_group">
+          group
+        </a>
+        ,
+        <a class="dark-ref" href="#details_channal">
+          channal
+        </a>
+      </div>
+      <div class="grid-cell-lft">Открыть или Вверх.</div>
+      <div class="grid-cell-lft">dy_down</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_group">
+          group
+        </a>
+        ,
+        <a class="dark-ref" href="#details_channal">
+          channal
+        </a>
+      </div>
+      <div class="grid-cell-lft">Закрыть или Вниз.</div>
+      <div class="grid-cell-lft">dy_bind_up</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_group">
+          group
+        </a>
+        ,
+        <a class="dark-ref" href="#details_channal">
+          channal
+        </a>
+      </div>
+      <div class="grid-cell-lft">Привязать пульт и установить вращение мотора по часовой стрелке, при нажатии на кнопку '<|>'.</div>
+      <div class="grid-cell-lft">dy_bind_down</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_group">
+          group
+        </a>
+        ,
+        <a class="dark-ref" href="#details_channal">
+          channal
+        </a>
+      </div>
+      <div class="grid-cell-lft">Привязать пульт и установить вращение мотора против часовой стрелки, при нажатии на кнопку '<|>'.</div>
+      <div class="grid-cell-lft">dy_bind</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_group">
+          group
+        </a>
+        ,
+        <a class="dark-ref" href="#details_channal">
+          channal
+        </a>
+      </div>
+      <div class="grid-cell-lft">Привязать дополнительный пульт.</div>
+      <div class="grid-cell-lft">dy_set_base_id</div>
+      <div class="grid-cell-lft">
+        <a class="dark-ref" href="#details_dy_id_base">
+          dy_id_base
+        </a>
+      </div>
+      <div class="grid-cell-lft">Задать базовый адрес устройств Dooya (Akko).</div>
+      <div class="grid-cell-cnt grid-head-blue tbl-span3">Общие команды.</div>
+      <div class="grid-cell-cnt grid-head-blue">Команда</div>
+      <div class="grid-cell-cnt grid-head-blue">Параметры</div>
+      <div class="grid-cell-cnt grid-head-blue">Описание</div>
+      <div class="grid-cell-lft">help</div>
+      <div class="grid-cell-lft">Нет.</div>
+      <div class="grid-cell-lft">Выводится ссылка на это описание.</div>
+      <div class="grid-cell-lft">cmd_list</div>
+      <div class="grid-cell-lft">Нет.</div>
+      <div class="grid-cell-lft">Выводится список всех команд.</div>
+      <div class="grid-cell-lft">version</div>
+      <div class="grid-cell-lft">Нет.</div>
+      <div class="grid-cell-lft">Выводится версия по.</div>
+      <div class="grid-cell-lft">ids_show</div>
+      <div class="grid-cell-lft">Нет.</div>
+      <div class="grid-cell-lft">Выводятся базовые адреса устройств.</div>
     </div>
+    <p id="details_counter">
+      Параметр counter может принимать занчения 0x00 - 0x1F. Т.о. модуль поддерживает 32 адреса для привязки к устройствам Somfy.
+    </p>
+    <p id="details_num_repeats">
+      Параметр num_repeats может принимать занчения 0x00 - 0x1F. При значениях 0x00 - 0x02 команда будет передана 2 раза. Параметр используется для того, чтобы можно было эмулировать кратковременное и долгое нажатие кнопок на пульте Somfy. Граница между коротким и длинным нажатием - 0x0e. Т.е. если количесво повторов команды мешьше 0x0e (14), будет воспринято кратковременное нажатие на кнопку. Если 0x0e или больше - длительное. Граница 0x0e может быть различной для разных устройств, поэтому параметр принимает не два значения (короткое/длинное нажатие), а точное, цифровое.
+    </p>
+    <p id="details_smf_id_base">
+      Параметр smf_id_base это базовый адрес устройств Somfy. Размер - три байта. Адреса устройств Somfy получаются прибавлением к smf_id_base номера счётчика.
+    </p>
+    <p id="details_value">
+      Параметр value может принимать занчения 0x0000 - 0xFFFF. В протоколе Somfy носит название rolling code. Это счётчик команд для конкретного адреса Somfy. Размер - два байта. Увеличивается при каждом нажатии на кнопку пульта. Окно разрешённых занчений - текущее занчение + 100. Т.о. если два пульта имеют один и тот же адрес, устройство Somfy будет выполнять команды только от пульта, rolling code которого будет попадать в окно разрешённых значений.
+    </p>
+    <p id="details_group">
+      Параметр group может принимать занчения 0x0 - 0xF. Выбирается группа каналов. В группе 15 каналов т.е. до 15 устройств Dooya могут быть объединены в группу. При передаче команды на 0-м канале, эту команду выполнят все устройства, находящиеся в группе.
+    </p>
+    <p id="details_channal">
+      Параметр channal может принимать занчения 0x0 - 0xF. При привязке устройсва нужно использовать значения 0x1 - 0xF. Команда, переданная на канале 0x0 будет выполнена всеми устройствами, входящими в группу.
+    </p>
+    <p id="details_dy_id_base">
+      Параметр dy_id_base это базовый адрес устройств Dooya. Размер - четыре байта. Адреса устройств Dooya получаются заменой младшего байта dy_id_base на байт состоящий из номера группы и номера канала.
+    </p>
   </body>
 </html>
 

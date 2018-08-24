@@ -17,29 +17,8 @@ body {
   background-color: aqua;
 }
 
-.tbl-span2 {
-  grid-column: span 2;
-}
-
 .tbl-span3 {
   grid-column: span 3;
-}
-
-.tbl-span7 {
-  grid-column: span 7;
-}
-
-.tbl-span8 {
-  grid-column: span 8;
-}
-
-.tbl-row-span2 {
-  grid-row: span 2;
-}
-
-.tbl-span2_x_2 {
-  grid-column: span 2;
-  grid-row: span 2;
 }
 
 .grid-cell-cnt, .grid-cell-lft {
