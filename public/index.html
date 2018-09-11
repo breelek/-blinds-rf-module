@@ -186,7 +186,7 @@
         </a>
       </div>
       <div class="grid-cell-lft">Закрыть или Вниз.</div>
-      <div class="grid-cell-lft">dy_bind_up</div>
+      <div class="grid-cell-lft">dy_bind_straight</div>
       <div class="grid-cell-lft">
         <a class="dark-ref" href="#details_group">
           group
@@ -197,7 +197,7 @@
         </a>
       </div>
       <div class="grid-cell-lft">Привязать пульт и установить вращение мотора по часовой стрелке, при нажатии на кнопку '<|>'.</div>
-      <div class="grid-cell-lft">dy_bind_down</div>
+      <div class="grid-cell-lft">dy_bind_backward</div>
       <div class="grid-cell-lft">
         <a class="dark-ref" href="#details_group">
           group
@@ -264,6 +264,20 @@
     <p id="details_dy_id_base">
       Параметр dy_id_base это базовый адрес устройств Dooya. Размер - четыре байта. Адреса устройств Dooya получаются заменой младшего байта dy_id_base на байт состоящий из номера группы и номера канала.
     </p>
+    <h4>
+      Не реализовано т.к. пока не пригодилось:
+    </h3>
+    <ul>
+      <li>
+        Прослушивание радиоканалов Somfy и Dooya, декодирование и выдача в UART перехваченных команд.
+      </li>
+      <li>
+        Поддержка API SI4463 через UART.
+      </li>
+      <li>
+        Обновление прошивки через UART.
+      </li>
+    </ul>
   </body>
 </html>
 
